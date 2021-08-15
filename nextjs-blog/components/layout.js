@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import {Button} from "react-bootstrap";
 
 const name = 'Mateusz Wlekliński'
 export const siteTitle = "Next.js Sample Website"
@@ -23,6 +24,7 @@ export default function Layout({ children, home }) {
             />
             <meta name="og:title" content={siteTitle} />
             <meta name="twitter:card" content="summary_large_image" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <header className={styles.header}>
             {home ? (
@@ -30,7 +32,7 @@ export default function Layout({ children, home }) {
                     <Image 
                         priority
                         src="/images/profile.jpg"
-                        className={utilStyles.boarderCircle}
+                        className={utilStyles.borderCircle}
                         height={144}
                         width={144}
                         alt={home}
@@ -44,7 +46,7 @@ export default function Layout({ children, home }) {
                             <Image 
                                 priority
                                 src="/images/profile.jpg"
-                                className={utilStyles.boarderCircle}
+                                className={utilStyles.borderCircle}
                                 height={108}
                                 width={108}
                                 alt={name}
@@ -63,7 +65,7 @@ export default function Layout({ children, home }) {
         {!home && (
             <div className={styles.backToHome}>
                 <Link href="/">
-                    <a>← Back to home</a>
+                    <Button variant="primary">Back to home</Button>
                 </Link>
             </div>
         )}
